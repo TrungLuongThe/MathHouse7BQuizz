@@ -224,12 +224,12 @@
     <script>
         // --- PHẦN LOGIC CỦA TRANG WEB ---
 
-        // 1. Lưu trữ đáp án đúng (ĐÃ CẬP NHẬT)
+        // 1. Lưu trữ đáp án đúng (ĐÃ CẬP NHẬT VỚI BỘ ĐÁP ÁN MỚI)
         const correctAnswers = {
-            1: 'B', 2: 'C', 3: 'B', 4: 'C', 5: 'B',
-            6: 'A', 7: 'A', 8: 'A', 9: 'E', 10: 'D',
-            11: 'A', 12: 'D', 13: 'A', 14: 'A', 15: 'A',
-            16: 'C', 17: 'A', 18: 'B', 19: 'B', 20: 'B'
+            1: 'A', 2: 'A', 3: 'A', 4: 'B', 5: 'B',
+            6: 'C', 7: 'D', 8: 'A', 9: 'B', 10: 'B',
+            11: 'A', 12: 'A', 13: 'D', 14: 'A', 15: 'A',
+            16: 'A', 17: 'C', 18: 'A', 19: 'C', 20: 'A'
         };
         
         const TOTAL_QUESTIONS = 20;
@@ -242,7 +242,7 @@
         const resultsDiv = document.getElementById('results');
         const studentNameInput = document.getElementById('studentName');
 
-        // 3. Tự động tạo 20 ô trả lời (ĐÃ CẬP NHẬT)
+        // 3. Tự động tạo 20 ô trả lời
         document.addEventListener('DOMContentLoaded', () => {
             let gridHTML = '';
             for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
@@ -256,7 +256,7 @@
             answerGrid.innerHTML = gridHTML;
         });
         
-        // 4. Cải tiến UX: Tự động nhảy sang ô tiếp theo (ĐÃ CẬP NHẬT)
+        // 4. Cải tiến UX: Tự động nhảy sang ô tiếp theo
         answerGrid.addEventListener('input', function(e) {
             if (e.target.tagName === 'INPUT' && e.target.value.length === 1) {
                 e.target.value = e.target.value.toUpperCase();
@@ -272,7 +272,7 @@
         });
 
 
-        // 5. Hàm xử lý khi nhấn nút "Nộp bài" (ĐÃ CẬP NHẬT)
+        // 5. Hàm xử lý khi nhấn nút "Nộp bài"
         function checkAnswers() {
             const studentName = studentNameInput.value.trim();
             
@@ -327,7 +327,7 @@
             resultsDiv.scrollIntoView({ behavior: 'smooth' });
         }
 
-        // 6. Hàm xử lý khi nhấn nút "Làm lại" (ĐÃ CẬP NHẬT)
+        // 6. Hàm xử lý khi nhấn nút "Làm lại"
         function resetQuiz() {
             for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
                 const input = document.getElementById(`answer-${i}`);
